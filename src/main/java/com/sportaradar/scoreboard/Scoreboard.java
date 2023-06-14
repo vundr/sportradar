@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Scoreboard {
 
@@ -14,7 +15,7 @@ public class Scoreboard {
     }
 
     public void startNewMatch(String homeTeam, String awayTeam) {
-
+        matches.put(UUID.randomUUID().toString(), new Match());
     }
 
     public Collection<Match> getAllMatches() {
