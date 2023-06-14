@@ -31,7 +31,7 @@ public class Scoreboard {
     }
 
     public void finishMatch(MatchId matchId) {
-
+        var match = matches.remove(matchId);
     }
 
     public Collection<Match> getAllMatches() {

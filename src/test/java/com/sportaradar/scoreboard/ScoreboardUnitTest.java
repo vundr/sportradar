@@ -72,7 +72,6 @@ public class ScoreboardUnitTest {
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");
         var awayTeam = new Team("Away");
-        var newScore = new Score(1, 0);
 
         //Act
         var matchId = scoreboard.startNewMatch(homeTeam, awayTeam);
