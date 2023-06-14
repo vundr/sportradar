@@ -1,5 +1,6 @@
 package com.sportaradar.scoreboard;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Match {
@@ -10,22 +11,26 @@ public class Match {
 
     private final Score score;
 
+    private final LocalDateTime startTime;
+
     public Match(Team homeTeam, Team awayTeam) {
-        this(homeTeam, awayTeam, new Score());
+        this(homeTeam, awayTeam, new Score(), LocalDateTime.now());
     }
 
-    Match(Team homeTeam, Team awayTeam, Score score) {
+    Match(Team homeTeam, Team awayTeam, Score score, LocalDateTime startTime) {
         Objects.requireNonNull(homeTeam, "Home team must not be null");
         Objects.requireNonNull(awayTeam, "Away team must not be null");
         Objects.requireNonNull(score, "Score must not be null");
+        Objects.requireNonNull(score, "Start time must not be null");
 
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.score = score;
+        this.startTime = startTime;
     }
 
     public Match updateScore(Score score) {
-        return new Match(homeTeam, awayTeam, score);
+        return new Match(homeTeam, awayTeam, score, startTime);
     }
 
     public Team getHomeTeam() {
@@ -38,6 +43,10 @@ public class Match {
 
     public Score getScore() {
         return score;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
     @Override

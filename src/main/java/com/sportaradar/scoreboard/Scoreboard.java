@@ -44,6 +44,7 @@ public class Scoreboard {
         matchesInProgress.sort(
                 Comparator.comparing((Match match) -> match.getScore().getTotalScore())
                         .reversed()
+                        .thenComparing(Match::getStartTime, Comparator.reverseOrder())
         );
         return matchesInProgress;
     }

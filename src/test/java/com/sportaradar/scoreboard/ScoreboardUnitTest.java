@@ -124,4 +124,33 @@ public class ScoreboardUnitTest {
         assertEquals(secondScore, result.get(1).getScore());
         assertEquals(firstScore, result.get(2).getScore());
     }
+
+    @Test
+    void whenGettingMatches_theyShouldBeSortedByScoreAndTimeOfCreation() {
+        //Arrange
+        var scoreboard = new Scoreboard();
+        var firstHomeTeam = new Team("First Home");
+        var firstAwayTeam = new Team("First Away");
+        var score = new Score(1, 0);
+        var secondHomeTeam = new Team("Second Home");
+        var secondAwayTeam = new Team("Second Away");
+        var thirdHomeTeam = new Team("Third Home");
+        var thirdAwayTeam = new Team("Third Away");
+
+        //Act
+        var firstMatchId = scoreboard.startNewMatch(firstHomeTeam, firstAwayTeam);
+        scoreboard.updateScore(firstMatchId, score);
+
+        var secondMatchId = scoreboard.startNewMatch(secondHomeTeam, secondAwayTeam);
+        scoreboard.updateScore(secondMatchId, score);
+
+        var thirdMatchId = scoreboard.startNewMatch(thirdHomeTeam, thirdAwayTeam);
+        scoreboard.updateScore(thirdMatchId, score);
+
+        //Assert
+        var result = scoreboard.getMatchesInProgress();
+        assertEquals(thirdHomeTeam, result.get(0).getHomeTeam());
+        assertEquals(secondHomeTeam, result.get(1).getHomeTeam());
+        assertEquals(firstHomeTeam, result.get(2).getHomeTeam());
+    }
 }
