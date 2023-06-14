@@ -11,12 +11,21 @@ public class Match {
     private final Score score;
 
     public Match(Team homeTeam, Team awayTeam) {
+        this(homeTeam, awayTeam, new Score());
+    }
+
+    Match(Team homeTeam, Team awayTeam, Score score) {
         Objects.requireNonNull(homeTeam, "Home team must not be null");
         Objects.requireNonNull(awayTeam, "Away team must not be null");
+        Objects.requireNonNull(score, "Score must not be null");
 
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.score = new Score();
+        this.score = score;
+    }
+
+    public Match updateScore(Score score) {
+        return new Match(homeTeam, awayTeam, score);
     }
 
     public Team getHomeTeam() {

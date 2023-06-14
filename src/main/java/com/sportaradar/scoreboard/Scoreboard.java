@@ -22,7 +22,9 @@ public class Scoreboard {
     }
 
     public void updateScore(MatchId matchId, Score newScore) {
-
+        var match = matches.get(matchId);
+        match = match.updateScore(newScore);
+        matches.put(matchId, match);
     }
 
     public Collection<Match> getAllMatches() {
