@@ -8,16 +8,21 @@ import java.util.UUID;
 
 public class Scoreboard {
 
-    private final Map<String, Match> matches;
+    private final Map<MatchId, Match> matches;
 
     public Scoreboard() {
         this.matches = new HashMap<>();
     }
 
-    public void startNewMatch(Team homeTeam, Team awayTeam) {
+    public MatchId startNewMatch(Team homeTeam, Team awayTeam) {
         var match = new Match(homeTeam, awayTeam);
-        var id = UUID.randomUUID().toString();
+        var id = new MatchId(UUID.randomUUID());
         matches.put(id, match);
+        return id;
+    }
+
+    public void updateScore(MatchId matchId, Score newScore) {
+
     }
 
     public Collection<Match> getAllMatches() {

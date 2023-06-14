@@ -33,4 +33,21 @@ public class ScoreboardUnitTest {
         assertEquals(0, resultScore.getAwayScore());
         assertEquals(0, resultScore.getHomeScore());
     }
+
+    @Test
+    void whenScoreUpdated_scoreOfTheMatchShouldBeUpdated() {
+        //Arrange
+        var scoreboard = new Scoreboard();
+        var homeTeam = new Team("Home");
+        var awayTeam = new Team("Away");
+        var newScore = new Score(1, 0);
+
+        //Act
+        var matchId = scoreboard.startNewMatch(homeTeam, awayTeam);
+        scoreboard.updateScore(matchId, newScore);
+
+        //Assert
+        var resultScore = scoreboard.getAllMatches().iterator().next().getScore();
+        assertEquals(newScore, resultScore);
+    }
 }
