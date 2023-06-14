@@ -14,8 +14,10 @@ public class Scoreboard {
         this.matches = new HashMap<>();
     }
 
-    public void startNewMatch(String homeTeam, String awayTeam) {
-        matches.put(UUID.randomUUID().toString(), new Match());
+    public void startNewMatch(Team homeTeam, Team awayTeam) {
+        var match = new Match(homeTeam, awayTeam);
+        var id = UUID.randomUUID().toString();
+        matches.put(id, match);
     }
 
     public Collection<Match> getAllMatches() {

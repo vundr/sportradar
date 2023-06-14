@@ -10,8 +10,10 @@ public class ScoreboardUnitTest {
     void whenNewMatchStarted_itShouldAppearOnTheBoard() {
         //Arrange
         var scoreboard = new Scoreboard();
+        var homeTeam = new Team("Home");
+        var awayTeam = new Team("Away");
         //Act
-        scoreboard.startNewMatch("Home", "Away");
+        scoreboard.startNewMatch(homeTeam, awayTeam);
 
         //Assert
         assertEquals(1, scoreboard.getAllMatches().size());
@@ -21,8 +23,10 @@ public class ScoreboardUnitTest {
     void whenNewMatchStarted_initialScoreShouldBeZero() {
         //Arrange
         var scoreboard = new Scoreboard();
+        var homeTeam = new Team("Home");
+        var awayTeam = new Team("Away");
         //Act
-        scoreboard.startNewMatch("Home", "Away");
+        scoreboard.startNewMatch(homeTeam, awayTeam);
 
         //Assert
         var resultScore = scoreboard.getAllMatches().iterator().next().getScore();
