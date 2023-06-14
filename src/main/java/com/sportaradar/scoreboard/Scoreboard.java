@@ -30,6 +30,10 @@ public class Scoreboard {
         matches.put(matchId, match);
     }
 
+    public void finishMatch(MatchId matchId) {
+
+    }
+
     public Collection<Match> getAllMatches() {
         return Collections.unmodifiableCollection(matches.values());
     }
