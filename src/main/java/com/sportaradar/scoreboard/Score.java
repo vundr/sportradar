@@ -24,6 +24,10 @@ public class Score {
         return awayScore;
     }
 
+    public int getTotalScore() {
+        return homeScore + awayScore;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

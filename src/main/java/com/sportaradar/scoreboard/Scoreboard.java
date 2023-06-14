@@ -1,8 +1,9 @@
 package com.sportaradar.scoreboard;
 
-import java.util.Collection;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -37,7 +38,13 @@ public class Scoreboard {
         }
     }
 
-    public Collection<Match> getMatchesInProgress() {
-        return Collections.unmodifiableCollection(matches.values());
+    public List<Match> getMatchesInProgress() {
+        var matchesInProgress = new ArrayList<>(matches.values());
+
+        matchesInProgress.sort(
+                Comparator.comparing((Match match) -> match.getScore().getTotalScore())
+                        .reversed()
+        );
+        return matchesInProgress;
     }
 }

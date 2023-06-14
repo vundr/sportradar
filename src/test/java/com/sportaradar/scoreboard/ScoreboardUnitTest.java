@@ -120,8 +120,8 @@ public class ScoreboardUnitTest {
 
         //Assert
         var result = scoreboard.getMatchesInProgress();
-        assertEquals(firstScore, result.iterator().next().getScore());
-        assertEquals(secondScore, result.iterator().next().getScore());
-        assertEquals(thirdScore, result.iterator().next().getScore());
+        assertEquals(thirdScore, result.get(0).getScore());
+        assertEquals(secondScore, result.get(1).getScore());
+        assertEquals(firstScore, result.get(2).getScore());
     }
 }
