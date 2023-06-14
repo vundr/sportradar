@@ -32,6 +32,9 @@ public class Scoreboard {
 
     public void finishMatch(MatchId matchId) {
         var match = matches.remove(matchId);
+        if (match == null) {
+            throw new MatchNotFoundException("Match not found by id: " + matchId);
+        }
     }
 
     public Collection<Match> getAllMatches() {

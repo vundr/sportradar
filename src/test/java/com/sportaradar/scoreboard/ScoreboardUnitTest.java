@@ -80,4 +80,17 @@ public class ScoreboardUnitTest {
         //Assert
         assertEquals(0, scoreboard.getAllMatches().size());
     }
+
+    @Test
+    void whenMatchFinishedAndMatchNotFound_shouldThrowException() {
+        //Arrange
+        var scoreboard = new Scoreboard();
+        var homeTeam = new Team("Home");
+        var awayTeam = new Team("Away");
+        var matchId = new MatchId("NOT_FOUND");
+
+        //Act + Assert
+        scoreboard.startNewMatch(homeTeam, awayTeam);
+        assertThrows(MatchNotFoundException.class, () -> scoreboard.finishMatch(matchId));
+    }
 }
