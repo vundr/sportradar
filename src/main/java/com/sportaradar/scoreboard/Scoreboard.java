@@ -37,7 +37,7 @@ public class Scoreboard {
         }
     }
 
-    public Collection<Match> getAllMatches() {
+    public Collection<Match> getMatchesInProgress() {
         return Collections.unmodifiableCollection(matches.values());
     }
 }
