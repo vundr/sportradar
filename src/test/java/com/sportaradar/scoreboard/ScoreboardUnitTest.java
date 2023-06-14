@@ -3,6 +3,7 @@ package com.sportaradar.scoreboard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ScoreboardUnitTest {
 
@@ -49,5 +50,19 @@ public class ScoreboardUnitTest {
         //Assert
         var resultScore = scoreboard.getAllMatches().iterator().next().getScore();
         assertEquals(newScore, resultScore);
+    }
+
+    @Test
+    void whenScoreUpdatedAndMatchNotFound_shouldThrowException() {
+        //Arrange
+        var scoreboard = new Scoreboard();
+        var homeTeam = new Team("Home");
+        var awayTeam = new Team("Away");
+        var newScore = new Score(1, 0);
+        var matchId = new MatchId("NOT_FOUND");
+
+        //Act + Assert
+        scoreboard.startNewMatch(homeTeam, awayTeam);
+        assertThrows(MatchNotFoundException.class, () -> scoreboard.updateScore(matchId, newScore));
     }
 }

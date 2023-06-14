@@ -23,6 +23,9 @@ public class Scoreboard {
 
     public void updateScore(MatchId matchId, Score newScore) {
         var match = matches.get(matchId);
+        if (match == null) {
+            throw new MatchNotFoundException("Match not found by id: " + matchId);
+        }
         match = match.updateScore(newScore);
         matches.put(matchId, match);
     }

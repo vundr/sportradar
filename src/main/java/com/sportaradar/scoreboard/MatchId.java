@@ -12,6 +12,11 @@ public class MatchId {
         this.id = id.toString();
     }
 
+    MatchId(String id) {
+        Objects.requireNonNull(id, "UUID must not be null");
+        this.id = id.toString();
+    }
+
     public String getId() {
         return id;
     }
