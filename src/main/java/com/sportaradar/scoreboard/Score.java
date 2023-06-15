@@ -2,6 +2,10 @@ package com.sportaradar.scoreboard;
 
 import java.util.Objects;
 
+/**
+ * The Score class represents the score of a match.
+ * It stores the home score, away score, and provides methods to calculate the total score.
+ */
 public class Score {
 
     private final int homeScore;
@@ -24,6 +28,11 @@ public class Score {
         return awayScore;
     }
 
+    /**
+     * Returns the total score (sum of home and away scores).
+     *
+     * @return The total score.
+     */
     public int getTotalScore() {
         return homeScore + awayScore;
     }

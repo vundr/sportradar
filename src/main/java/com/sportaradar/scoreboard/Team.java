@@ -2,6 +2,10 @@ package com.sportaradar.scoreboard;
 
 import java.util.Objects;
 
+/**
+ * The Team class represents a sports team.
+ * It stores information about the team's name and country.
+ */
 public class Team {
 
     private final String name;

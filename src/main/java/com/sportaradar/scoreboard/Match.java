@@ -3,6 +3,10 @@ package com.sportaradar.scoreboard;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * The Match class represents a single match between two teams.
+ * It stores information about the home team, away team, score, and start time of the match.
+ */
 public class Match {
 
     private final Team homeTeam;
@@ -29,6 +33,12 @@ public class Match {
         this.startTime = startTime;
     }
 
+    /**
+     * Updates the score of the match and returns a new Match instance with the updated score.
+     *
+     * @param score The new score for the match.
+     * @return A new Match instance with the updated score.
+     */
     public Match updateScore(Score score) {
         return new Match(homeTeam, awayTeam, score, startTime);
     }

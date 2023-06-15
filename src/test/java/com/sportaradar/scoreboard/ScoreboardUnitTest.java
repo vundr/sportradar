@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ScoreboardUnitTest {
 
     @Test
-    void whenNewMatchStarted_itShouldAppearOnTheBoard() {
+    void whenStartNewMatch_itShouldAppearOnTheBoard() {
         //Arrange
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");
@@ -21,7 +21,7 @@ public class ScoreboardUnitTest {
     }
 
     @Test
-    void whenNewMatchStarted_initialScoreShouldBeZero() {
+    void whenStartNewMatch_initialScoreShouldBeZero() {
         //Arrange
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");
@@ -36,7 +36,7 @@ public class ScoreboardUnitTest {
     }
 
     @Test
-    void whenScoreUpdated_scoreOfTheMatchShouldBeUpdated() {
+    void whenUpdateScore_scoreOfTheMatchShouldBeUpdated() {
         //Arrange
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");
@@ -53,7 +53,7 @@ public class ScoreboardUnitTest {
     }
 
     @Test
-    void whenScoreUpdatedAndMatchNotFound_shouldThrowException() {
+    void whenUpdateScoreAndMatchNotFound_shouldThrowException() {
         //Arrange
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");
@@ -67,7 +67,7 @@ public class ScoreboardUnitTest {
     }
 
     @Test
-    void whenMatchFinished_itShouldBeRemovedFromTheBoard() {
+    void whenFinishMatch_itShouldBeRemovedFromTheBoard() {
         //Arrange
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");
@@ -82,7 +82,7 @@ public class ScoreboardUnitTest {
     }
 
     @Test
-    void whenMatchFinishedAndMatchNotFound_shouldThrowException() {
+    void whenFinishMatchAndMatchNotFound_shouldThrowException() {
         //Arrange
         var scoreboard = new Scoreboard();
         var homeTeam = new Team("Home");

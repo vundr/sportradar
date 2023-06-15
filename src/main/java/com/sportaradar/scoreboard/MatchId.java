@@ -3,6 +3,10 @@ package com.sportaradar.scoreboard;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * The MatchId class represents the unique identifier for a match.
+ * It can be created from a UUID object or a string representation.
+ */
 public class MatchId {
 
     private final String id;
